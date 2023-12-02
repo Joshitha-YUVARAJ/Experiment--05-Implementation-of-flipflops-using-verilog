@@ -102,39 +102,181 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+
+1) SR flip flop
+
+Step-1) Connect the supply(+5V)       to the circuit.
+
+Step-2) First press "ADD" button to add basic state of your output in the given table.
+
+Step-3) Press the switches to select the required inputs "S" and "R" and apply the clock pulse.
+
+Step-4) Press "ADD" button to add your inputs and outputs in the given table and their corresponding graph.
+
+Step-5) Repeat steps 3&4 for next state of inputs and their corresponding outputs.
+
+Step-6) Press the "Print" button after completing your simulation to get your results.
+
+
+2) D flip flop
+
+Step-1) Connect the supply(+5V)       to the circuit.
+
+Step-2) First press "ADD" button to add basic state of your output in the given table.
+
+Step-3) Press the switches to select the required inputs "D" and "Clock" .
+
+Step-4) Press "ADD" button to add your inputs and outputs in the given table and their corresponding graph.
+
+Step-5) Repeat step 3 & step 4 for next state of inputs and their corresponding outputs.
+
+Step-6) Press the "Print" button after completing your simulation to get your results.
+
+3) J-K flip flop
+
+Step-1) Connect the supply(+5V)       to the circuit.
+
+Step-2) First press "ADD" button to add basic state of your output in the given table.
+
+Step-3) Press the switches to select the required inputs "J" and "K" and apply the clock pulse.
+
+Step-4) Press "ADD" button to add your inputs and outputs in the given table and their corresponding graph.
+
+Step-5) Repeat step 3 & step 4 for next state of inputs and their corresponding outputs.
+
+Step-6) Press the "Print" button after completing your simulation to get your results.
+
+
+4) T flip flop
+
+Step-1) Connect the supply(+5V)       to the circuit.
+
+Step-2) First press "ADD" button to add basic state of your output in the given table.
+
+Step-3) Press the switches to select the required inputs "T" and apply the clock pulse.
+
+Step-4) Press "ADD" button to add your inputs and outputs in the given table and their corresponding graph.
+
+Step-6) Press the "Print" button after completing your simulation to get your results.
 
 
 
 ### PROGRAM 
+
 /*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by:YUVARAJ JOSHITHA 
+
+RegisterNumber: 23011447 
+
 */
 
+ SR flip flop:
 
+ ```
+module srf(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+q= s|((~r)&q);
+end
+assign qbar=~q;
+endmodule
+```
 
+ D flip flop:
+
+```
+module df(d , clk , q, qbar);
+input d,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin 
+q=d;
+end 
+assign qbar=~q;
+endmodule
+```
+
+J-K flip flop:
+
+```
+module jkf(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q;
+output qbar;
+always @(posedge clk)
+begin
+q<=(j&~q)|(~k&q);
+end
+assign qbar=~q;
+endmodule
+```
+T flip flop:
+
+```
+module t(t,clk,q,qbar);
+input t,clk;
+output reg q;
+output qbar;
+always@(posedge clk)   
+begin
+q=q^t;
+end
+assign qbar=~q;
+endmodule
+```
 
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+ SR flip flop:
+
+![Screenshot 2023-12-01 203749](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/6c00f852-9913-4718-b7ce-c74841982bb2)
+
+ D flip flop:
+
+ ![Screenshot 2023-12-02 193941](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/580d09bc-b27a-4ffd-9e5e-3b2446f1b184)
+
+J-K flip flop:
+
+![Screenshot 2023-12-02 194201](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/0e87ef9b-3960-4f9f-9c81-9f4c8356487f)
 
 
+T flip flop:
 
-
+![Screenshot 2023-12-02 191951](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/ddff1ea5-c4d7-45de-9ff3-325a104130f4)
 
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+ SR flip flop:
+
+![Screenshot 2023-12-02 180248](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/ec83b6fe-f6fd-49d7-8834-eedc88557384)
+
+ D flip flop:
+
+ ![Screenshot 2023-12-02 194033](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/6b5beedb-d393-4c5a-a69e-3f46296dbf90)
+
+J-K flip flop:
+
+![Screenshot 2023-12-02 181136](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/fc5bc0d0-ca72-4c87-9865-9b06c5ff94aa)
 
 
-
-
-
+T flip flop:
+![Screenshot 2023-12-02 192310](https://github.com/Joshitha-YUVARAJ/Experiment--05-Implementation-of-flipflops-using-verilog/assets/145742770/630e6b4d-0ca1-4c61-9570-5827bfce6894)
 
 
 ### RESULTS 
+
+Thus implementation of SR,D,JK and T filpflops using nand gates are done successfully
+
+
